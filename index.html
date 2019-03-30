@@ -19,10 +19,13 @@
 
   </head>
   <body>
-      <div class="header">canvas drawing board</div>
+      
+    <div class="header">canvas drawing board</div>
     <canvas id="artboard">
         This is a canvas you can draw on. It was coded in HTML and Javascript.
-    </canvas>
+    </canvas><br><p>colour picker:</p>
+    <input type="color" id="picker" value="#b72d37">
+
   </body>
   <script type="text/javascript">
 
@@ -63,6 +66,10 @@
         }
     }
 
+    function colourPicker(){
+        penColour = picker.value
+    }
+
     // changing the colour of the pen when keys are pressed
     function keyControls(e){
         switch(e.keyCode){
@@ -95,6 +102,7 @@
     var ctx = canvas.getContext("2d")
     var penColour = "#b72d37"; // red, default
     var radius = 10
+    var picker = document.getElementById("picker")
     resizeCanvas();
 
     // event listeners 
@@ -102,6 +110,7 @@
     window.addEventListener("touchmove", draw)
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("keydown", keyControls)
+    picker.addEventListener("change", colourPicker)
 
     </script>
 </html>
