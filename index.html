@@ -32,9 +32,15 @@
     }
 
     function draw(e){
-        x = e.pageX - canvas.offsetLeft;
-        y = e.pageY - canvas.offsetTop;
-        // console.log("function has been called");
+        if (e.touches){
+            x = e.touches[0].clientX - canvas.offsetLeft;
+            y = e.touches[0].clientY - canvas.offsetTop;
+        }
+        else {
+            x = e.pageX - canvas.offsetLeft;
+            y = e.pageY - canvas.offsetTop;
+        }
+
         ctx.beginPath();
         ctx.fillStyle=penColour;
         ctx.arc(x, y, radius, 0, 2*Math.PI);
