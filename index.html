@@ -33,8 +33,8 @@
 
     function draw(e){
         if (e.touches){
-            x = e.touches[0].clientX - canvas.offsetLeft;
-            y = e.touches[0].clientY - canvas.offsetTop;
+            x = e.touches[0].pageX - canvas.offsetLeft;
+            y = e.touches[0].pageY - canvas.offsetTop;
         }
         else {
             x = e.pageX - canvas.offsetLeft;
@@ -68,8 +68,9 @@
         switch(e.keyCode){
             case 82: // r
                 penColour = "rgb(183,45,55)"; // red
+                break;
             case 66: // b
-                penColour = "rgb(149,184,209"; // blue
+                penColour = "rgb(149,184,209)"; // blue
                 break;
             case 71: // g
                 penColour = "rgb(156,198,155)"; // green
